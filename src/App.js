@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FaAd } from "react-icons/fa";
+import Search from './components/Search';
+import AddAppointment from './components/AddAppointment';
+import AppointmentInfo from './components/AppointmentInfo';
+import appointmentList from './data.json';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App mx-auto text-5xl">
+      <h1 className='title'>Is tailwind working</h1>
+      <FaAd />
+      <AddAppointment />
+      <Search />
+
+    <ul className='divide-y divide-gray-200'>
+      {appointmentList.map(appointment => (<AppointmentInfo key={appointment.id}
+      appointment={appointment}/>))}
+    </ul>
+
+      <p>Grab a coffee!</p>
     </div>
   );
 }
